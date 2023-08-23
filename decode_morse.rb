@@ -23,19 +23,34 @@ MORSECHAR = { '.-' => 'A',
               '.--' => 'W',
               '-..-' => 'X',
               '-.--' => 'Y',
-              '--..' => 'Z', '-----' => '0', '.----' => '1', '..---' => '2',
-              '...--' => '3', '....-' => '4', '.....' => '5',
-              '-....' => '6', '--...' => '7', '---..' => '8',
-              '----.' => '9' }
+              '--..' => 'Z',
+              '-----' => '0',
+              '.----' => '1',
+              '..---' => '2',
+              '...--' => '3',
+              '....-' => '4',
+              '.....' => '5',
+              '-....' => '6',
+              '--...' => '7',
+              '---..' => '8',
+              '----.' => '9' }.freeze
 
-def decode_char(morseCode)
-  MORSECHAR[morseCode]
+def decode_char(morse_code)
+  MORSECHAR[morse_code]
 end
 
 # puts decode_char('.-')
 
 def decode_word(string)
-  string.split.map { |morseCode| decode_char(morseCode) }.join
+  string.split.map { |morse_code| decode_char(morse_code) }.join
 end
 
 # puts decode_word("-- -.--")
+
+def decode_message(sentence)
+  sentence.split('   ').map { |word| decode_word(word) }.join(' ')
+end
+
+# puts decode_message("-- -.--   -. .- -- .")
+
+puts decode_message('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
