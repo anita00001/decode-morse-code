@@ -39,18 +39,13 @@ def decode_char(morse_code)
   MORSECHAR[morse_code]
 end
 
-# puts decode_char('.-')
-
 def decode_word(string)
   string.split.map { |morse_code| decode_char(morse_code) }.join
 end
-
-# puts decode_word("-- -.--")
 
 def decode_message(sentence)
   sentence.split('   ').map { |word| decode_char(word) }.join(' ')
 end
 
-# puts decode_message("-- -.--   -. .- -- .")
-
 puts decode_message('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
+# A BOX FULL OF RUBIES
