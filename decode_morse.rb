@@ -48,7 +48,7 @@ end
 # puts decode_word("-- -.--")
 
 def decode_message(sentence)
-  sentence.split('   ').map { |word| decode_word(word) }.join(' ')
+  sentence.split('   ').map { |word| decode_char(word) }.join(' ')
 end
 
 # puts decode_message("-- -.--   -. .- -- .")
